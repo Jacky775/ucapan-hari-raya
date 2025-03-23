@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .slide {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        p {
+            font-size: 20px;
+        }
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide active">
+        <h1>Selamat Hari Raya Idul Fitri...🙏</h1>
+        <p>Minal Aidzin Walfaidzin. Mohon Maaf Lahir dan Batin😊</p>
+    </div>
+
+    <div class="slide">
+        <h1>Maaf yaa sering ngomongin pendek🙄</h1>
+        <p>Tapi fakta sihhh..😆</p>
+    </div>
+
+    <div class="slide">
+        <h1>ehhhhh bentar..</h1>
+        <p>Minta THR dong..😋</p>
+    </div>
+
+    <div class="slide">
+        <h1>sejuta doang kokkk🙄</h1>
+        <p>hehehe😁</p>
+    </div>
+
+    <div>
+        <button class="button" onclick="prevSlide()">Sebelumnya</button>
+        <button class="button" onclick="nextSlide()">Selanjutnya</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+
+</body>
+</html>
